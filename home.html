@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Homepage</title>
+</head>
+<body>
+    
+    <nav>
+        <div id="logo">
+            <a href="home.html">
+                <img src="images/icons/logo-options/theRedPlanet (1).svg" alt="">
+                <p class="logo-RP">RP</p>
+            </a>
+        </div>
+        <ul id="nav-options-wrapper">
+            <li class='nav-options' id="home">
+                <a href="">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 58.365 58.365" style="enable-background:new 0 0 58.365 58.365;" xml:space="preserve">
+                    <path fill="white" d="M57.863,26.632l-8.681-8.061V5.365h-10v3.921L29.182,0L0.502,26.632c-0.404,0.376-0.428,1.009-0.052,1.414
+                        c0.375,0.404,1.008,0.427,1.414,0.052l3.319-3.082v33.349h16h16h16V25.015l3.319,3.082c0.192,0.179,0.437,0.267,0.681,0.267
+                        c0.269,0,0.536-0.107,0.732-0.319C58.291,27.641,58.267,27.008,57.863,26.632z M41.182,7.365h6v9.349l-6-5.571V7.365z
+                        M23.182,56.365V35.302c0-0.517,0.42-0.937,0.937-0.937h10.126c0.517,0,0.937,0.42,0.937,0.937v21.063H23.182z M51.182,56.365h-14
+                        V35.302c0-1.62-1.317-2.937-2.937-2.937H24.119c-1.62,0-2.937,1.317-2.937,2.937v21.063h-14V23.158l22-20.429l14.28,13.26
+                        l5.72,5.311v0l2,1.857V56.365z"/>
+                    </svg>Home</a>
+            </li>
+            <li class='nav-options' id="messages">
+                <a href="">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                <path fill="white" d="M479.574,78.191H10.425c-0.071,0-0.141,0.007-0.211,0.008l0.001,0.003C4.556,78.315,0,82.925,0,88.617v312.766
+                    c0,5.762,4.669,10.426,10.425,10.426h469.149c5.758,0,10.426-4.664,10.426-10.426V88.617C490,82.854,485.332,78.191,479.574,78.191z
+                    M454.407,99.043l-138.581,138.58c-0.002,0.002-0.004,0.003-0.006,0.005L245,308.449l-70.82-70.821
+                    c-0.004-0.004-0.008-0.007-0.013-0.012L35.594,99.043H454.407z M20.851,113.784l131.215,131.215L20.851,376.215V113.784z
+                    M35.594,390.957l131.215-131.216l70.821,70.821c3.629,3.629,9.303,5.439,14.743,0l70.82-70.82l131.215,131.215H35.594z
+                    M469.149,376.213L337.935,244.999l131.214-131.214V376.213z"/>
+                </svg>Messages</a>
+            </li>
+            <li class='nav-options' id="charts">
+                <a href="">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                       <rect fill="white" y="37.7" width="88.7" height="414.6"/>
+                       <rect fill="white" x="133.8" y="147.4" width="88.7" height="304.9"/>
+                       <rect fill="white" x="267.6" y="235.7" width="88.7" height="216.6"/>
+                       <rect fill="white" x="401.3" y="307.2" width="88.7" height="145.1"/>
+               </svg>Analytics</a>
+            </li>
+            
+        </ul>
+        <ul id="nav-user-panel">
+            <li id="user-portrait">
+                <img class="userIcon" src="" alt="">
+                <p id="firstName" class="fName"></p>
+            </li>
+            <li id="signOutWrapper">
+                <a id="signOutBtn" onclick="signOut()" href="login.html">Sign Out</a>
+            </li>
+        </ul>
+        <div id="hamburger-wrapper">
+            <div id="hamburger-btn"></div>
+            <div id="hamburger-btn"></div>
+            <div id="hamburger-btn"></div>
+        </div>
+    </nav>
+    <div id="home-grid">
+        <div class="column-1">
+            <section class="col-1" id="userpanel">
+                <div>
+                    <div id="imagebumper">
+                        <img class="userIcon" src="images/icons/male-avatar.svg" alt="avatar">
+                        <div id="colorblock"></div>
+                    </div>
+                    
+                    <p id="firstnamePanel"><span class="fName"></span> <span class="lName"></span></p>
+                    <p id="career"></p>
+                </div>
+                <div>
+                    <p>Following</p>
+                    <p>1.8K</p>
+                </div>
+                <div>
+                    <p>Followers</p>
+                    <p>2.55K</p>
+                </div>
+            </section>
+            <section class="col-1" id="suggestion">
+                <div>
+                    <h2>Suggestions</h2>
+                </div>
+                <div class="sug-user generate-user api-generate-user">
+                    <img src="images/user3.JPG" alt="user portrait">
+                    <p class="generate-user-name"></p>
+                    <p>Astrophysicist</p>
+                </div>
+                <div class="sug-user">
+                    <img src="images/user2.jpg" alt="user portrait">
+                    <p>Luis Covelli</p>
+                    <p>Mechanical Engineer</p>
+                </div>
+                <div class="sug-user">
+                    <img src="images/user1.jpg" alt="user portrait">
+                    <p>Toby Covelli</p>
+                    <p>Cert. Good Boy</p>
+                </div>
+                <div class="sug-user generate-user api-generate-user">
+                    <img src="images/user3.JPG" alt="user portrait">
+                    <p class="generate-user-name"></p>
+                    <p>Plastics Engineer</p>
+                </div>
+                <div class="sug-user">
+                    <img src="images/user3.JPG" alt="user portrait">
+                    <p>Ali Fares-Boulos</p>
+                    <p>Frontend Dev</p>
+                </div>
+            </section>
+            <section class="col-1" id="suggestion2">
+                <h2>Favorites</h2>
+                <a href=""><img src="images/icons/newsfeed.svg" alt="tablet"><p>News Feed</p></a>          
+                <a href=""><img src="images/icons/calendar.svg" alt="calendar"><p>Events</p></a>
+                <a href=""><img src="images/icons/messages.svg" alt="envelope"><p>Messages</p></a>
+                <a href=""><img src="images/icons/mostrecent.svg" alt="pin"><p>Most Recent</p></a>
+                <a href=""><img src="images/icons/yourposts.svg" alt="sharing/forking"><p>Your Posts</p></a>
+                <a href=""><img src="images/icons/archives.svg" alt="envelope"><p>Archives</p></a>
+                <a href=""><img src="images/icons/analytics.svg" alt="pin"><p>Analytics</p></a>
+                <a href=""><img src="images/icons/notes.svg" alt="sharing/forking"><p>Notes</p></a>
+            </section>
+        </div>
+        <div class="column-2">
+
+            <section class="col-2 createUpdateWrapper">
+                <div class="createUpdate">
+                    <img class="userIcon" src="" alt="">
+                    <h2 class="activeFullname"></h2>
+                    <div></div>
+                </div>        
+                <div id="createUpdateLower">
+                    <textarea name="" id="" placeholder="Write your post here..."></textarea>
+                    <div id="updateOpt">
+                        <button>+ Tag a friend</button>
+                        <button>+ Add Photo</button>
+                        <button>Post</button>
+                    </div>
+                </div>
+
+                
+            </section>
+
+            <section class="col-2 api-generate-user">
+                <div class="generate-user">
+                    <img src="" alt="">
+                    <h2 class="generate-user-name"></h2>
+                </div>        
+                <p>Lorem ipsum dolor sit amet.</p>
+                <button class="buttonOpt">Reply</button>
+                <span class="timestamp">3 mins</span>
+            </section>
+
+            <section class="col-2 api-generate-user">
+                <div class="generate-user">
+                    <img src="" alt="">
+                    <h2 class="generate-user-name"></h2>
+                </div>        
+                <p>Consectet odio rerum, aspernatur pndis  dolor sit amet consectetur adipisicing elit. Corporis, nesciunt?</p>
+                <button class="buttonOpt">Reply</button>
+                <span class="timestamp">18 mins</span>
+            </section>
+
+            <section class="col-2 section1x1">
+                <h2>Trending Groups</h2>
+                <div class="apiArticle">
+                    <img src="" alt="">
+                    <span>
+                        <h3></h3>
+                        <p></p>
+                    </span>
+                    
+                </div>
+            </section>
+
+            <section class="col-2 api-generate-user">
+                <div class="generate-user">
+                    <img src="" alt="">
+                    <h2 class="generate-user-name"></h2>
+                </div>        
+                <p>Lorem ipsum  expedita inventore odit ipsam quae, id ad enim delectus beatae neque magni itaque. Eaque repudiandae earum eos delectus. Veniam, itaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, nesciunt?</p>
+                <button class="buttonOpt">Reply</button>
+                <span class="timestamp">22 mins</span>
+            </section>
+
+            <section class="col-2">
+                <h2>Galatic Times</h2>
+                <div class="flex-images">
+                    <div class="apiArticle">
+                        <img id="apiImg-1" src="images/robotsq.jpg" alt="">
+                        <h3 id="apiH3-1">Subheader</h3>
+                    </div>
+                    <div class="apiArticle">
+                        <img id="apiImg-2" src="images/robotsq.jpg" alt="">
+                        <h3 id="apiH3-2">Subheader</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="col-2 api-generate-user">
+                <div class="generate-user">
+                    <img src="" alt="">
+                    <h2 class="generate-user-name"></h2>
+                </div>        
+                <p>Rerum, aspernatur provident expedita. Eaque repudiandae earum eos delectus. Veniam, itaque! Lorem ipsum  elit. Corporis, nesciunt?</p>
+                <button class="buttonOpt">Reply</button>
+                <span class="timestamp">3 hrs</span>
+            </section>
+
+            <section class="col-2 api-generate-user">
+                <div class="generate-user">
+                    <img src="" alt="">
+                    <h2 class="generate-user-name"></h2>
+                </div>        
+                <p>Consectetur adipisicing elit. Quaerat soluta animi qui laboriosam dolores eos maxime reiciendis tempore?</p>
+                <button class="buttonOpt">Reply</button>
+                <span class="timestamp">5 hrs</span>
+            </section>
+
+            <section class="col-2 api-generate-user">
+                <div class="generate-user">
+                    <img src="" alt="">
+                    <h2 class="generate-user-name"></h2>
+                </div>        
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit expedita nobis nisi sit quam santium facilis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, est!</p>
+                <button class="buttonOpt">Reply</button>
+                <span class="timestamp">9 hrs</span>
+            </section>
+
+            <section class="col-2">
+                <h2>Eaque repudiandae</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis libero adipisci sunt magnam possimus aliquam voluptas cum pariatur. Dolorem accusamus odio rerum, aspernatur provident expedita inventore odit ipsam quae, id ad enim delectus beatae neque repellendus reiciendis aliquid nam repellat magni itaque. Eaque repudiandae earum eos delectus. Veniam, itaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, nesciunt?</p>
+            </section>
+        </div>
+        <div class="column-3">
+            <section class="col-3 apiArticle">
+                <h3>Trending Groups</h3>
+                <img src="" alt="">
+                <p></p>
+            </section>
+            <section class="col-3 apiArticle">
+                <h3>Temporibus veritatis</h3>
+                <img src="" alt="">
+                <p></p>
+            </section>
+            <section class="col-3 apiArticle">
+                <h3></h3>
+                <p></p>
+            </section>
+            
+            <section class="col-3 apiArticle">
+                <h3>Trending Groups</h3>
+                <img src="" alt="">
+                <p></p>
+            </section>
+
+            <section class="col-3 apiArticle">
+                <h3></h3>
+                <p></p>
+            </section>
+
+            <section class="col-3 apiArticle">
+                <h3></h3>
+                <img src="" alt="">
+                <p></p>
+            </section>
+
+        </div>
+    </div>
+    <footer>
+        <div id="foot-logo">
+            <img src="images/icons/logo-options/theRedPlanet (1).svg" alt="">
+            <p>RP</p>
+        </div>
+        <div id="foot-copyright">Copyright &copy; The Red Planet 2021   All Rights Reserved</div>
+        <div id="foot-options">
+            <ul>
+                <li>about</li>
+                <li>company</li>
+                <li>policy</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/userProfile.js"></script>
+    <script src="js/newsApi.js"></script>
+    <script src="js/randomUserGenerator.js"></script>
+    <script src="js/hamburger.js"></script>
+</body>
+</html>

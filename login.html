@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login</title>
+</head>
+    <body>
+        <div id="createUserContainer">
+            <div id="leftContainerImg">
+                <img src="images/Rocket Launch _Two Color.svg" alt="">
+            </div>
+            <section>
+                <div>
+                    <h1>The Red Planet</h1>
+                    <h2>Sign In</h2>
+                    <p>Let's get you caught up on the latest space news.</p>
+                    <form id="contactForm">
+                        <div id="loginUserQuestions">
+                            <div class="info-wrapper">
+                                <input type="text" id="email" placeholder="Email">
+                                <p class="invalidText">Invalid</p><img class="invalidIcon" src="images/icons/error-svgrepo-com.svg" alt="">
+                               
+                            </div>
+                            
+                            <div class="info-wrapper">    
+                                <input type="text" id="password" placeholder="Password">
+                                <p class="invalidText">Invalid</p><img class="invalidIcon" src="images/icons/error-svgrepo-com.svg" alt="">
+                            </div>
+                        </div>
+                        <button id="submitBtn" class="loginBtn">Login</button>
+                        
+                    </form>
+                    <a href="index.html"><button id="orSignUpBtn">Sign Up</button></a>
+                </div>
+            </section>
+        </div>
+        <div class="createNewUser" id="new-create-wrapper">
+            <div class="createNewUserContent" id="login-create">
+                <p>Username or Password does not exist.</p>
+                <p>Would you like to create a new account?</p>
+                <div id="btnholder">
+                    <a href="login.html"><button class="btnMold secondaryBtn">Cancel</button></a>
+                    <a href="index.html"><button class="btnMold primaryBtn">Sign Up</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="createNewUser">
+            <div class="createNewUserContent" id="successful-login">
+                <p>Successfully Logged In</p>
+            </div>
+        </div>
+    <script src="js/index.js"></script>
+    <script src="js/loginEmptyInputVal.js"></script>
+</body>
+</html>

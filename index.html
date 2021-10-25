@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Create Account</title>
+</head>
+<!----FOR DEMO PURPOSES, THIS INDEX.HTML FILE IS THE CREATE USER PAGE SO VISITORS CAN SIGNUP FIRST---->
+    <body>
+        <div id="createUserContainer">
+            <div id="leftContainerImg">
+                <img src="images/Rocket Launch _Two Color.svg" alt="">
+            </div>
+            
+            <section>
+                <div>
+                    <h1>The Red Planet</h1>
+                    <h2>Welcome to the Team</h2>
+                    <p>Join the space forum to get daily out of this world updates.</p>
+                    <form id="contactForm">
+                        <div id="createUserQuestions">
+                            <div class="info-wrapper">
+                                <input type="text" id="createemail" placeholder="Email">
+                                <p class="invalidText">Invalid</p><img class="invalidIcon" src="images/icons/error-svgrepo-com.svg" alt="">
+                            </div>
+                            <div class="info-wrapper">
+                                <input type="text" id="createpassword" placeholder="Password">
+                                <p class="invalidText">Invalid</p><img class="invalidIcon" src="images/icons/error-svgrepo-com.svg" alt="">
+                            </div>
+                            <div class="info-wrapper">
+                                <input type="text" id="firstName" placeholder="First Name">
+                                <p class="invalidText">Invalid</p><img class="invalidIcon" src="images/icons/error-svgrepo-com.svg" alt="">
+                            </div>
+                            <div class="info-wrapper">
+                                <input type="text" id="lastName" placeholder="Last Name">
+                                <p class="invalidText">Invalid</p><img class="invalidIcon" src="images/icons/error-svgrepo-com.svg" alt="">
+                            </div>
+                            <div class="info-wrapper">
+                                <input type="text" id="careertitle" placeholder="Occupation">
+                                <p class="invalidText">Invalid</p><img class="invalidIcon" src="images/icons/error-svgrepo-com.svg" alt="">
+                            </div>
+                            <div class="info-wrapper">
+                                <select name="avatar" id="avatar">
+                                    <option value="" selected>Avatar</option>
+                                    <option value="robot">Robot</option>
+                                    <option value="astronaut">Astronaut</option>
+                                    <option value="alien">Alien</option>
+                                </select>
+                                <p class="invalidText">Invalid</p><img class="invalidIcon" src="images/icons/error-svgrepo-com.svg" alt="">
+                            </div>
+                        </div>
+                        <!--<button id="loginsubmitBtn">Login</button>-->
+                        <button id="createsubmitBtn">Sign Up Now</button>
+                        <p id="dataReturned"></p>
+                    </form>
+                </div>
+            </section>
+
+            <div class="createNewUser" id="successfulCreation">
+                <div class="createNewUserContent">
+                    <p>Account Created Successfully</p>
+                    <a href="home.html"><button>Go to Home</button></a>
+                </div>
+            </div>
+        </div>
+    <script src="js/index.js"></script>
+    <script src="js/createUserVal.js"></script>
+</body>
+</html>

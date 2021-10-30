@@ -1,4 +1,4 @@
-
+/* VALIDATION OF LOGIN FORM IF GIVEN EMPTY OR POOR FORMATTED INPUTS */
 
 function emptyInputs(){
     var switcher = true;
@@ -83,3 +83,13 @@ function removeInvalidFormatEl(el){
     txt.classList.remove('showinvalid');
     img.classList.remove('showinvalid');
 };
+
+
+
+//INVALID  PASSWORD ENTERED BUT ACCURATE USERNAME
+
+
+function invalidPass() {
+    var invalidDis = document.getElementById('login-invalidPassword');
+    invalidDis.classList.add('active');
+}

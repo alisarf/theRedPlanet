@@ -1,40 +1,47 @@
 
-               
+ /*
+ RED PLANET: FAUX SOCIAL MEDIA PLATFORM
+
+ CONNECT TO REALTIME DATABASE AND THEN PROCESS IF THE USER IS CREATING NEW ACCOUNT
+ OR LOGGING IN . IF LOGGING IN, THEN MATCH THE INPUT EMAIL TO A DB KEY AND CHECK IF
+ THE KEY HAS THE CORRESPONDING PASSWORD. IF YES, MOVE TO HOMEPAGE, ELSE IF, USER ENTER 
+ VALID USERNAME WITH INCORRECT PASSWORD PROMPT USER TO TRY AGAIN || SIGNUP, ELSE, PROMPT
+ USER TO SIGNUP -> REDIRECT TO SIGNUP PAGE.
+ 
+ FUTURE IDEAS: 
+ -create password and username retrieval with security questions
+ -add reply features to faux user comments
+ -add posting update features
+ */            
                // Your web app's Firebase configuration
             // For Firebase JS SDK v7.20.0 and later, measurementId is optional
             var config = {
-              apiKey: "AIzaSyCGllKygtvgslm-Seou9YYqrsajjzjYUzM",
-              authDomain: "loginsite-9f275.firebaseapp.com",
-              databaseURL: "https://loginsite-9f275-default-rtdb.firebaseio.com",
-              projectId: "loginsite-9f275",
-              storageBucket: "loginsite-9f275.appspot.com",
-              messagingSenderId: "294766221060",
-              appId: "1:294766221060:web:2a47f1ea6436aa975be251",
-              measurementId: "G-WT4W5LRHEL"
+              /*
+              
+              
+              
+              INSERT YOUR API KEY TO DB HERE
+              
+              
+              
+              */
 
           };
         
           // Initialize Firebase
           firebase.initializeApp(config);
-          //initialize variables
-          
-          const database = firebase.database()
 
+          //initialize variables
+          const database = firebase.database();
           var usersRef = firebase.database().ref('Users');
 
-          /*---------------testing   -----------------------*/
+          /*---------------DB manipulation testing   -----------------------*/
           usersRef.on("value", snap => {
             //console.log(snap); // this key will output users
             //console.log(snap.key); // this method will return full user
             //console.log(snap.val());    //<--------A COMPLETE USERS LIST
             //console.log(snap.ref.toString())  //firebase database
         });
-
-
-
-
-
-
 
 
             /*---------------testing   -----------------------*/
@@ -59,7 +66,7 @@
                     createEPExist(createemail, createpassword);
                     });
             } else {
-                console.log('ignore')
+                //console.log('ignore')
             };
         };
 
@@ -78,17 +85,16 @@
                 localStorage.setItem("emailkey", emailKey);
                 //alert('account created succesfuly')
                 var successfulCreationofUser = document.getElementById('successfulCreation');
+
                 successfulCreationofUser.classList.add('show');
                 document.getElementById('contactForm').reset();
                 //time delay before opening site after login success
             } else {
                 //if createUserVal.js returns false then throw error
-                console.log('invalid email and password values')
+                //console.log('invalid email and password values')
                 throw new Error;
             };
         };
-
-
 
           //Grab the necessary elements
           if (submitBtn) {
@@ -104,10 +110,9 @@
                 var emptyInputsResults = emptyInputs();
 
                 if (emptyInputsResults == false) {
-                    console.log('stop, something is invalid formatted here')
+                    //console.log('stop, something is invalid formatted here')
                     throw new Error;
                 }
-
               //check if it exists already
               doesitExist(email, password);
           }
@@ -121,29 +126,27 @@
               var query = ref.equalTo(email);
               query.once('value', function(snapshot) {
                     if(snapshot.exists()){
-                        console.log('yes this '+ email +' is here')
+                        //console.log('yes this '+ email +' is here')
                         //insert successfully logged in message
                         getEmailKey(email, password)
                         //var queryPwd = passwordref.equalTo(password);
                         queryPwd.once('value', function(snapshot2) {
                         if(snapshot2.exists()) {
-                            console.log('and that is the password')
+                            //console.log('correct password')
                             var thiskey = snapshot2.getKey();
-                            console.log(thiskey)
+                            //console.log(thiskey);
                             return;
                         } else {
-                            console.log('this is not the password')
-                            console.log(password)
+                            //console.log('incorrect password')
+                            //console.log(password);
                         }
                         
                     })
                     var logindiv = document.getElementById('successful-login');
                     logindiv.parentNode.classList.add('show');
-                    //time delay before opening site after login success
-                   // setTimeout(function () {
-                        //TODO INSERT A FAUX HOMEPAGE
-                        //window.open('home.html',"_self");  //
-                    //}, 2000);
+                    /*Extra step: Could insert a time delay here so users can see 
+                    this success message before redirecting to home. As 
+                    of now it is skipped over*/
 
                   } else {
                       //would you like to make new account?
@@ -186,7 +189,7 @@
                 
                 var emailKey;
                 usersRef.orderByChild("email").equalTo(email).on("child_added", (snap) => {
-                    console.log("email key " + snap.ref.key);
+                    //console.log("email key " + snap.ref.key);
                     emailKey = snap.ref.key;
                     findPassword(emailKey, elpassword);
                 });
@@ -195,33 +198,31 @@
             //FIND MATCHING PASSWORD
             var authPassword;
             function findPassword(emailKey, elpassword) {
-                console.log('yooo')
                 database.ref('Users').child(emailKey).once('value').then(function(snapshot) {
                     var value = snapshot.val();
                     authPassword = value.password;  //associated psw
-                    console.log('Users:', value.password);
-                    console.log(authPassword);
+                    //console.log('Users:', value.password);
+                    //console.log(authPassword);
                     itsaMatch(authPassword, elpassword, emailKey);
-                    //resp.json(value.password);
                   })
-                  //.catch(next);
               }
             
             
             //DOES EMAIL MATCH PASSWORD RETRIEVED
             function itsaMatch(authPassword, elpassword, emailKey) {
-                console.log('the auth password' + authPassword)
+                //console.log('the auth password' + authPassword)
                 if(elpassword == authPassword) {
                     console.log('this email matches the pulled password - login successful')
                     //redirect to home when login successful
                     localStorage.setItem("emailkey", emailKey);
                     window.location.href = 'home.html';
+                    return;
                     //the password matches the username
                 } else{
-                    //alert('invalid password')
-                    console.log('this email does not match the pulled password')
                     //the password does not match the username
                 }
+                //Display prompt asking user to "try again" or "sign up"
+                invalidPass();
             }
 
 

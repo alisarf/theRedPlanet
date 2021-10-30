@@ -171,6 +171,7 @@ nav ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 15px;
+  padding-left: 0;
 }
 
 nav ul #user-portrait {
@@ -221,7 +222,6 @@ nav ul #signOutWrapper a {
 
 nav li {
   display: inline-block;
-  margin: 0 10px;
 }
 
 nav li p {
@@ -304,6 +304,7 @@ nav #logo img {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  min-width: 60px;
 }
 
 nav #signOutBtn {
@@ -1015,6 +1016,10 @@ footer ul li {
 
 #orSignUpBtn:hover {
   background-color: #a1a1a1;
+}
+
+.active#login-invalidPassword {
+  visibility: visible !important;
 }
 
 .createNewUser {

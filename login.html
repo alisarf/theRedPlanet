@@ -7,7 +7,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-database.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <title>Login</title>
+    <link rel="shortcut icon" type="image/png" href="images/icons/theRedPlanet.png"/>
+    <title>Login | Red Planet</title>
 </head>
     <body>
         <div id="createUserContainer">
@@ -45,6 +46,15 @@
                 <p>Would you like to create a new account?</p>
                 <div id="btnholder">
                     <a href="login.html"><button class="btnMold secondaryBtn">Cancel</button></a>
+                    <a href="index.html"><button class="btnMold primaryBtn">Sign Up</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="createNewUser" id="login-invalidPassword">
+            <div class="createNewUserContent" id="invalidPassword">
+                <p>The password you entered is invalid</p>
+                <div id="btnholder">
+                    <a href="login.html"><button class="btnMold secondaryBtn">Try Again</button></a>
                     <a href="index.html"><button class="btnMold primaryBtn">Sign Up</button></a>
                 </div>
             </div>

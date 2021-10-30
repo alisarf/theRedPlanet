@@ -51,10 +51,10 @@ Homepage Feed:
 
 ### What I learned
 
--How to connect to Firebase's Realtime Database.
--How to set and retrieve data within
--How to access its uniquely generated keys
--How convenient CSS grid is when creating media queries
+- How to connect to Firebase's Realtime Database.
+- How to set and retrieve data within
+- How to access its uniquely generated keys
+- How convenient CSS grid is when creating media queries
 
 ### Continued development
 

@@ -28,7 +28,7 @@ Another challenge I had was trying to find the password associated to the user's
 ### Screenshot
 
 Sign Up:
-![](./images/screenshots/createUse.png)
+![](./images/screenshots/createUser.png)
 
 Login:
 ![](./images/screenshots/login.png)

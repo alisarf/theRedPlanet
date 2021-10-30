@@ -1,8 +1,8 @@
 # Red Planet - Social Media Platform
 
-An E-Commerce site that asynchronously populates product categories through processing JSON data. Local storage repopulates the user's cart when revisiting the E-Store. The checkout popup includes form validation.
+An application that utilizes NoSQL via Firebase’s Realtime Database to set and retrieve user account settings and data. Simulates a social media platform environment by generating space news and pseudo users through API integration. Local storage is used to repopulate the user's settings when returning to the homepage.
 
-live: https://thestoreco.web.app/
+live: https://loginsite-9f275.web.app/
 
 ## Table of contents
 
